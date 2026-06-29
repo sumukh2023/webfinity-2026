@@ -2,21 +2,21 @@ import { Section, SectionHeading } from '@/components/Section';
 import { Gallery } from '@/components/Gallery';
 
 const items = [
-  { caption: 'Opening keynote', tall: true },
-  { caption: 'Main stage' },
-  { caption: 'Workshops' },
-  { caption: 'Networking lounge' },
-  { caption: 'After-party', tall: true },
-  { caption: 'Awards night' },
+  { caption: 'Wood-fired pizza alley', tall: true },
+  { caption: 'The gelato lab' },
+  { caption: 'Venetian mask studio' },
+  { caption: 'Gondola ring toss' },
+  { caption: 'Evening lantern walk', tall: true },
+  { caption: 'Tarantella on the main stage' },
 ];
 
 export function GallerySection() {
   return (
     <Section spacing="lg">
       <SectionHeading
-        eyebrow="Gallery"
-        title="Moments worth showing"
-        description="Drop in real images via the `src` prop, or ship the gradient placeholders as-is."
+        eyebrow="Last year’s festa"
+        title="A little taste of the day"
+        description="Scenes from Festa Italiana 2025 — and a hint of what’s coming on October 17."
       />
       <div className="mt-14">
         <Gallery items={items} columns={3} />

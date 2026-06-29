@@ -53,8 +53,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Sora', 'Inter', 'sans-serif'],
-        heading: ['Space Grotesk', 'Inter', 'sans-serif'],
+        // Editorial serif for an Italian, festa-style headline voice.
+        display: ['Fraunces', 'Sora', 'Georgia', 'serif'],
+        heading: ['Fraunces', 'Space Grotesk', 'Georgia', 'serif'],
         body: ['Manrope', 'Inter', 'sans-serif'],
       },
       fontSize: {
@@ -70,7 +71,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'aurora':
-          'linear-gradient(115deg, hsl(var(--primary)), hsl(var(--accent)), #22d3ee, hsl(var(--primary)))',
+          'linear-gradient(115deg, hsl(var(--primary)), #e0a82e, hsl(var(--accent)), hsl(var(--primary)))',
       },
       boxShadow: {
         glow: '0 0 0 1px hsl(var(--border)), 0 8px 40px -8px hsl(var(--primary) / 0.35)',

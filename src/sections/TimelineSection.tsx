@@ -3,38 +3,44 @@ import { Timeline } from '@/components/Timeline';
 
 const items = [
   {
-    time: '00:00',
-    title: 'Theme drops',
+    time: '10:00',
+    title: 'Gates open · Buongiorno!',
     description:
-      'Clone the starter, swap the design tokens to match the brief, and you already have a themed shell.',
+      'Espresso and cornetti at the entrance, live accordion, and the ribbon-cutting by the principal in the main piazza.',
   },
   {
-    time: '00:20',
-    title: 'Wireframe with components',
+    time: '12:00',
+    title: 'Tarantella dance lesson',
     description:
-      'Drop in Hero, Bento, Stats and FAQ blocks. Rearrange spans to match your concept.',
+      'Everyone welcome on the main stage — no experience needed. Pizza alley fires up its first margheritas.',
   },
   {
-    time: '01:30',
-    title: 'Polish & animate',
+    time: '15:00',
+    title: 'The Great Bake-Off',
     description:
-      'Layer in reveals, cursor glow and smooth scroll. The premium feel comes for free.',
+      'Students and families go head-to-head in the cannoli and tiramisù contest. Public tasting (and voting) right after.',
   },
   {
-    time: '02:30',
-    title: 'Ship & present',
+    time: '17:00',
+    title: 'Prize draw & gelato hour',
     description:
-      'Build passes, no errors, deploy-ready for Vercel. Walk into the presentation confident.',
+      'Cash in your game tickets at the prize cart, then cool down — all twelve gelato flavours, half price.',
+  },
+  {
+    time: '19:30',
+    title: 'Lantern walk & finale',
+    description:
+      'The band plays out the night as the quad fills with paper lanterns. Buonanotte — see you next year.',
   },
 ];
 
 export function TimelineSection() {
   return (
-    <Section id="timeline" spacing="lg" className="bg-secondary/20">
+    <Section id="schedule" spacing="lg" className="bg-secondary/20">
       <SectionHeading
-        eyebrow="Competition day"
-        title="From theme to trophy in 2.5 hours"
-        description="The starter is designed around the clock — every block removes a decision you'd otherwise make under pressure."
+        eyebrow="Saturday, October 17"
+        title="The day, hour by hour"
+        description="Ten hours of festa, from the first espresso to the last lantern. Come for an hour or stay for it all."
       />
       <div className="mt-16">
         <Timeline items={items} />

@@ -11,6 +11,8 @@ export interface HeroProps {
   subtitle?: React.ReactNode;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  /** Small uppercase line beneath the CTAs (e.g. tech stack, location, tags). */
+  meta?: React.ReactNode;
 }
 
 export function Hero({
@@ -24,6 +26,7 @@ export function Hero({
   subtitle = 'A premium, reusable frontend foundation — animation system, component library, and design tokens — so competition day is pure design and build.',
   primaryCta = { label: 'Explore components', href: '#features' },
   secondaryCta = { label: 'View the bento', href: '#bento' },
+  meta = 'React · Vite · Tailwind · Framer Motion · GSAP · Lenis',
 }: HeroProps) {
   return (
     <section
@@ -79,7 +82,7 @@ export function Hero({
             variants={childVariants}
             className="mt-8 text-xs uppercase tracking-widest text-muted-foreground/70"
           >
-            React · Vite · Tailwind · Framer Motion · GSAP · Lenis
+            {meta}
           </motion.p>
         </motion.div>
       </div>

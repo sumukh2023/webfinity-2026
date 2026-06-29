@@ -8,60 +8,65 @@
 /*  compose with Tailwind's <alpha-value> (e.g. bg-primary/50).        */
 /* ------------------------------------------------------------------ */
 @layer base {
+  /* ----------------------------------------------------------------- */
+  /*  Theme: "Festa Italiana" — warm Mediterranean carnival            */
+  /*  Tricolore-inspired: Italian red (primary) + basil green (accent) */
+  /*  + warm gold highlights, on cream (light) / piazza-night (dark).  */
+  /* ----------------------------------------------------------------- */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 40 38% 97%;
+    --foreground: 20 14% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 40 33% 99%;
+    --card-foreground: 20 14% 12%;
 
-    --primary: 244 84% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 4 74% 48%;
+    --primary-foreground: 40 40% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 38 28% 91%;
+    --secondary-foreground: 20 10% 18%;
 
-    --accent: 280 84% 62%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 147 40% 36%;
+    --accent-foreground: 40 40% 98%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 38 24% 91%;
+    --muted-foreground: 24 8% 40%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 244 84% 60%;
+    --border: 36 22% 85%;
+    --input: 36 22% 85%;
+    --ring: 4 74% 48%;
 
-    --radius: 0.85rem;
+    --radius: 1rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 20 16% 7%;
+    --foreground: 40 28% 94%;
 
-    --card: 240 8% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 22 14% 10%;
+    --card-foreground: 40 28% 94%;
 
-    --primary: 244 84% 67%;
+    --primary: 6 80% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 22 12% 15%;
+    --secondary-foreground: 40 28% 94%;
 
-    --accent: 280 84% 70%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 147 46% 48%;
+    --accent-foreground: 20 16% 7%;
 
-    --muted: 240 4% 12%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 22 12% 15%;
+    --muted-foreground: 34 12% 64%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 16%;
-    --input: 240 6% 18%;
-    --ring: 244 84% 67%;
+    --border: 24 12% 18%;
+    --input: 24 12% 20%;
+    --ring: 6 80% 58%;
   }
 }
 

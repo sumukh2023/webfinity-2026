@@ -4,20 +4,20 @@ import { Marquee } from '@/components/Marquee';
 import { FadeIn } from '@/components/animations';
 
 const stats = [
-  { value: 2.5, suffix: 'h', label: 'To design & build', decimals: 1 },
-  { value: 40, suffix: '+', label: 'Reusable exports' },
-  { value: 60, suffix: 'fps', label: 'Animation target' },
-  { value: 100, suffix: '%', label: 'TypeScript' },
+  { value: 30, suffix: '+', label: 'Food & game stalls' },
+  { value: 12, suffix: '', label: 'Gelato flavours' },
+  { value: 10, suffix: 'h', label: 'Of non-stop festa' },
+  { value: 1, suffix: '', label: 'Unforgettable day' },
 ];
 
 const logos = [
-  'Apple',
-  'Stripe',
-  'Linear',
-  'Framer',
-  'Vercel',
-  'Notion',
-  'Arc',
+  'Roma',
+  'Venezia',
+  'Firenze',
+  'Napoli',
+  'Toscana',
+  'Sicilia',
+  'Milano',
 ];
 
 export function MetricsSection() {
@@ -29,7 +29,7 @@ export function MetricsSection() {
 
       <FadeIn delay={0.1} className="mt-16">
         <p className="text-center text-xs uppercase tracking-widest text-muted-foreground/70">
-          Quality benchmarked against
+          A taste of every region
         </p>
         <Marquee className="mt-6">
           {logos.map((logo) => (
