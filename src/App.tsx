@@ -4,10 +4,11 @@ import {
   FeaturesSection,
   BentoSection,
   MetricsSection,
-  ShowcaseSection,
-  TestimonialsSection,
+  FoodSection,
   GallerySection,
   TimelineSection,
+  TestimonialsSection,
+  TicketsSection,
   FAQSection,
   CTASection,
 } from '@/sections';
@@ -15,14 +16,25 @@ import {
 export default function App() {
   return (
     <RootLayout>
-      <Hero />
+      <Hero
+        label="Festa Italiana 2026"
+        title="A whole day of Italy, at Lincoln High."
+        subtitle="Street food, carnival games, gelato, live music and an art piazza. One Saturday, the whole quad becomes a festival."
+        primaryCta={{ label: 'Get tickets', href: '#tickets' }}
+        secondaryCta={{ label: 'See the schedule', href: '#schedule' }}
+        image={{
+          src: 'https://picsum.photos/seed/festa-hero-piazza/1000/1250',
+          alt: 'A lively Italian street festival',
+        }}
+      />
+      <MetricsSection />
       <FeaturesSection />
       <BentoSection />
-      <MetricsSection />
-      <ShowcaseSection />
+      <FoodSection />
       <GallerySection />
       <TimelineSection />
       <TestimonialsSection />
+      <TicketsSection />
       <FAQSection />
       <CTASection />
     </RootLayout>

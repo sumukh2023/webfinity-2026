@@ -1,10 +1,10 @@
 import {
-  Gauge,
+  Pizza,
+  IceCream2,
+  Music4,
   Palette,
-  Sparkles,
-  Accessibility,
-  Layers,
-  Wand2,
+  Ticket,
+  Trophy,
 } from 'lucide-react';
 import { Section, SectionHeading } from '@/components/Section';
 import { FeatureCard } from '@/components/FeatureCard';
@@ -12,50 +12,50 @@ import { StaggerChildren, StaggerItem } from '@/components/animations';
 
 const features = [
   {
-    icon: Gauge,
-    title: 'Zero setup time',
+    icon: Pizza,
+    title: 'Street food from every region',
     description:
-      'Vite, TypeScript, Tailwind and the full animation stack are pre-wired. Clone and start designing.',
+      'Wood-fired pizza, fresh arancini, focaccia and cannoli, cooked on-site by our culinary club and local nonni.',
   },
   {
-    icon: Wand2,
-    title: 'Animation system',
+    icon: Trophy,
+    title: 'Carnival games & prizes',
     description:
-      'Composable FadeIn, SlideUp, ScaleIn, Stagger and GSAP Reveal wrappers with shared motion tokens.',
+      'Gondola ring toss, bocce, “pin the moustache on the Mario” and a Colosseum bounce arena. Win tickets, redeem for prizes.',
   },
   {
-    icon: Layers,
-    title: 'Composable components',
+    icon: Music4,
+    title: 'Live music & tarantella',
     description:
-      'A polished library — bento, glass cards, timeline, stats, FAQ — built to be reshaped, not rewritten.',
+      'Our school band plays Italian classics on the main stage, with a beginner-friendly tarantella dance lesson at noon.',
   },
   {
     icon: Palette,
-    title: 'Token-driven theming',
+    title: 'Art & craft piazza',
     description:
-      'Every color, radius and font is a CSS variable. Re-skin the entire site by editing one file.',
+      'Paint a Venetian mask, fold origami gondolas, and add a tile to the giant collaborative mosaic of the Bay of Naples.',
   },
   {
-    icon: Accessibility,
-    title: 'Accessible by default',
+    icon: IceCream2,
+    title: 'The gelato lab',
     description:
-      'Semantic markup, focus states, reduced-motion support and Radix primitives baked in.',
+      'Twelve flavours churned fresh, from stracciatella to blood-orange sorbetto. Senior science class explains the chemistry.',
   },
   {
-    icon: Sparkles,
-    title: 'Premium polish',
+    icon: Ticket,
+    title: 'All for a good cause',
     description:
-      'Cursor glow, aurora backdrops, spotlight cards and buttery smooth scroll — the details judges notice.',
+      'Every dollar goes to the Lincoln High arts and exchange-trip fund. Have fun, support your school.',
   },
 ];
 
 export function FeaturesSection() {
   return (
-    <Section id="features" spacing="lg">
+    <Section id="attractions" spacing="lg">
       <SectionHeading
-        eyebrow="Why this starter"
-        title="Everything you need, nothing you'll fight"
-        description="A foundation tuned for speed under pressure — so the only thing left on competition day is the design."
+        eyebrow="What’s on"
+        title="One day. All of Italy."
+        description="From the first espresso to the evening lantern walk, the whole quad becomes a Mediterranean piazza for a day."
       />
       <StaggerChildren className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((f) => (

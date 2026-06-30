@@ -3,65 +3,66 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------ */
-/*  Design Tokens                                                      */
-/*  Switch the entire theme from here. Values are HSL channels so they */
-/*  compose with Tailwind's <alpha-value> (e.g. bg-primary/50).        */
+/*  Design Tokens — "Festa Italiana"                                   */
+/*  Terracotta + Slate: one saturated accent on cool neutrals.        */
+/*  Single locked LIGHT theme. HSL channels for <alpha-value>.         */
 /* ------------------------------------------------------------------ */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 210 20% 98%;
+    --foreground: 222 24% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 24% 14%;
 
-    --primary: 244 84% 60%;
+    --primary: 14 80% 49%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 210 18% 94%;
+    --secondary-foreground: 222 18% 22%;
 
-    --accent: 280 84% 62%;
+    /* accent == primary: ONE brand colour across the whole page */
+    --accent: 14 80% 49%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 210 18% 94%;
+    --muted-foreground: 218 12% 40%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 70% 46%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 244 84% 60%;
+    --border: 214 16% 89%;
+    --input: 214 16% 89%;
+    --ring: 14 80% 49%;
 
-    --radius: 0.85rem;
+    --radius: 0.6rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 222 24% 9%;
+    --foreground: 210 20% 96%;
 
-    --card: 240 8% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 22% 12%;
+    --card-foreground: 210 20% 96%;
 
-    --primary: 244 84% 67%;
+    --primary: 14 82% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 222 16% 18%;
+    --secondary-foreground: 210 20% 96%;
 
-    --accent: 280 84% 70%;
+    --accent: 14 82% 56%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 240 4% 12%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 222 16% 18%;
+    --muted-foreground: 215 14% 64%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 68% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 16%;
-    --input: 240 6% 18%;
-    --ring: 244 84% 67%;
+    --border: 220 14% 24%;
+    --input: 220 14% 24%;
+    --ring: 14 82% 56%;
   }
 }
 
@@ -84,7 +85,6 @@
       'calt' 1;
   }
 
-  /* Respect users who prefer reduced motion. */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -97,10 +97,9 @@
   }
 
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    @apply bg-primary/20 text-foreground;
   }
 
-  /* Custom, minimal scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -109,10 +108,10 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-border;
+    @apply rounded-full bg-foreground/15;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/40;
+    @apply bg-foreground/30;
   }
 }
 
@@ -120,31 +119,30 @@
 /*  Reusable utilities                                                 */
 /* ------------------------------------------------------------------ */
 @layer utilities {
-  /* Gradient clipped to text */
+  /* Headings render as solid ink (no gradient-clip tell). */
   .text-gradient {
-    @apply bg-gradient-to-br from-foreground via-foreground to-foreground/40 bg-clip-text text-transparent;
+    @apply text-foreground;
   }
-
+  /* Accent words use the single brand colour. */
   .text-gradient-brand {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    @apply text-primary;
   }
 
-  /* Frosted glass surface */
+  /* The one card surface for the whole page: hairline border, soft
+     slate-tinted shadow (never pure-black on light). */
+  .paper-card {
+    @apply rounded-xl border border-border bg-card;
+    box-shadow:
+      0 1px 2px hsl(222 24% 14% / 0.04),
+      0 8px 24px -12px hsl(222 24% 14% / 0.12);
+  }
+
+  /* Solid translucent bar for the nav (not glassmorphism on everything). */
   .glass {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+    @apply border border-border bg-card/85 backdrop-blur-md;
   }
 
-  /* Subtle film-grain noise overlay (set as a background) */
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* Animated conic/linear brand background */
-  .bg-aurora {
-    @apply animate-aurora bg-aurora bg-[length:200%_200%];
-  }
-
-  /* Mask edges to transparent — great for marquees */
+  /* Mask edges to transparent — for the marquee. */
   .mask-fade-x {
     -webkit-mask-image: linear-gradient(
       to right,

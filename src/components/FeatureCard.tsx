@@ -9,7 +9,7 @@ export interface FeatureCardProps {
   className?: string;
 }
 
-/** An icon + title + copy card with a gradient icon chip. */
+/** A feature row: icon inline with the title (not stacked above it). */
 export function FeatureCard({
   icon: Icon,
   title,
@@ -17,14 +17,16 @@ export function FeatureCard({
   className,
 }: FeatureCardProps) {
   return (
-    <GlassCard className={cn('h-full transition-transform', className)}>
-      <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary ring-1 ring-inset ring-white/10">
-        <Icon className="h-5 w-5" />
+    <GlassCard className={cn('h-full', className)}>
+      <div className="flex items-center gap-3">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+          <Icon className="h-5 w-5" />
+        </span>
+        <h3 className="font-heading text-lg font-semibold tracking-tight">
+          {title}
+        </h3>
       </div>
-      <h3 className="font-heading text-lg font-semibold tracking-tight">
-        {title}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
     </GlassCard>

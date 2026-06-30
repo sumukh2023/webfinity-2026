@@ -1,12 +1,15 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/utils/cn';
 import { containerVariants, childVariants } from '@/utils/motion';
 
 export interface GalleryItem {
-  /** Image URL. If omitted, a themed gradient placeholder is shown. */
+  /** Image URL. If omitted, `node` or a themed placeholder is shown. */
   src?: string;
   alt?: string;
   caption?: string;
+  /** Custom media (e.g. an inline SVG illustration) rendered as the tile. */
+  node?: React.ReactNode;
   /** Make this tile span two rows for a masonry feel. */
   tall?: boolean;
 }
@@ -23,18 +26,9 @@ const colMap = {
   4: 'sm:grid-cols-2 lg:grid-cols-4',
 };
 
-const PLACEHOLDER_GRADIENTS = [
-  'from-indigo-500/40 to-fuchsia-500/40',
-  'from-cyan-500/40 to-blue-500/40',
-  'from-amber-500/40 to-rose-500/40',
-  'from-emerald-500/40 to-teal-500/40',
-  'from-violet-500/40 to-purple-500/40',
-];
-
 /**
- * A responsive image gallery with hover zoom and caption reveal. Works with real
- * images (`src`) or renders themed gradient placeholders when none are provided —
- * so it's useful on competition day even before assets exist.
+ * A responsive image gallery with hover zoom and caption reveal. Prefers real
+ * images (`src`); falls back to a custom `node` or a neutral tinted tile.
  */
 export function Gallery({ items, className, columns = 3 }: GalleryProps) {
   return (
@@ -54,7 +48,7 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
           key={item.caption ?? item.src ?? i}
           variants={childVariants}
           className={cn(
-            'group relative overflow-hidden rounded-2xl border border-border',
+            'group relative overflow-hidden rounded-xl border border-border',
             item.tall && 'row-span-2'
           )}
         >
@@ -65,14 +59,12 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+          ) : item.node ? (
+            <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
+              {item.node}
+            </div>
           ) : (
-            <div
-              aria-hidden
-              className={cn(
-                'h-full w-full bg-gradient-to-br transition-transform duration-500 group-hover:scale-105',
-                PLACEHOLDER_GRADIENTS[i % PLACEHOLDER_GRADIENTS.length]
-              )}
-            />
+            <div aria-hidden className="h-full w-full bg-secondary" />
           )}
 
           {item.caption && (

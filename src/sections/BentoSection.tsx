@@ -1,15 +1,14 @@
-import { Boxes, Cpu, Globe2, Rocket } from 'lucide-react';
+import { Castle, Drama, Ship, Sparkles } from 'lucide-react';
 import { Section, SectionHeading } from '@/components/Section';
 import { BentoGrid, BentoCard } from '@/components/BentoGrid';
 import { SlideUp } from '@/components/animations';
 
 export function BentoSection() {
   return (
-    <Section id="bento" spacing="lg" className="bg-secondary/20">
+    <Section id="piazza" spacing="lg" className="bg-secondary/20">
       <SectionHeading
-        eyebrow="Component library"
-        title="A bento built for storytelling"
-        description="Mix spans and rows to compose dense, magazine-style layouts in minutes."
+        title="Wander the piazza"
+        description="Five zones, each a different corner of Italy. Follow the bunting and let your nose lead the way."
       />
 
       <SlideUp className="mt-14">
@@ -17,9 +16,9 @@ export function BentoSection() {
           <BentoCard
             colSpan={2}
             rowSpan={2}
-            eyebrow="Featured"
-            title="Design that performs"
-            description="Lighthouse-friendly out of the box. Smooth 60fps animations that never block the main thread."
+            eyebrow="Main stage, Roma"
+            title="The Colosseum arena"
+            description="Bounce-castle gladiators by day, live band and tarantella by night. Hourly games with prizes drawn on the big screen."
             className="justify-between"
           >
             <div className="mt-6 flex items-end gap-2">
@@ -34,36 +33,36 @@ export function BentoSection() {
           </BentoCard>
 
           <BentoCard
-            eyebrow="Speed"
-            title="Instant HMR"
-            description="Vite's dev server keeps you in flow."
+            eyebrow="Napoli"
+            title="Pizza alley"
+            description="Stretch, top and fire your own margherita."
           >
-            <Rocket className="mt-4 h-8 w-8 text-primary" />
+            <Sparkles className="mt-4 h-8 w-8 text-primary" />
           </BentoCard>
 
           <BentoCard
-            eyebrow="Composable"
-            title="40+ exports"
-            description="Import once from a single barrel."
+            eyebrow="Venezia"
+            title="Mask studio"
+            description="Decorate a Carnevale mask to take home."
           >
-            <Boxes className="mt-4 h-8 w-8 text-accent" />
+            <Drama className="mt-4 h-8 w-8 text-accent" />
           </BentoCard>
 
           <BentoCard
             colSpan={2}
-            eyebrow="Responsive"
-            title="Looks right on every screen"
-            description="Mobile-first utilities and a centered container scale the whole layout with zero extra work."
+            eyebrow="Riviera"
+            title="Games on the lungomare"
+            description="Gondola ring toss, bocce lanes and the Trevi Fountain coin-toss. Trade your winning tickets at the prize cart."
           >
-            <Globe2 className="mt-4 h-8 w-8 text-primary" />
+            <Ship className="mt-4 h-8 w-8 text-primary" />
           </BentoCard>
 
           <BentoCard
-            eyebrow="Powered by"
-            title="Modern stack"
-            description="React 18, TS, Tailwind."
+            eyebrow="Firenze"
+            title="Art piazza"
+            description="Mosaic wall, gelato lab & quiet shade."
           >
-            <Cpu className="mt-4 h-8 w-8 text-accent" />
+            <Castle className="mt-4 h-8 w-8 text-accent" />
           </BentoCard>
         </BentoGrid>
       </SlideUp>

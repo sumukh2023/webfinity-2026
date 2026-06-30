@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { Section } from '@/components/Section';
 
 export interface FooterColumn {
@@ -14,34 +14,34 @@ export interface FooterProps {
 
 const defaultColumns: FooterColumn[] = [
   {
-    title: 'Product',
+    title: 'The day',
     links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Components', href: '#bento' },
-      { label: 'Showcase', href: '#stats' },
+      { label: 'Attractions', href: '#attractions' },
+      { label: 'The piazza', href: '#piazza' },
+      { label: 'Food & gelato', href: '#food' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Plan your visit',
     links: [
-      { label: 'Documentation', href: '#' },
-      { label: 'Changelog', href: '#' },
-      { label: 'Guides', href: '#' },
+      { label: 'Schedule', href: '#schedule' },
+      { label: 'Tickets', href: '#tickets' },
+      { label: 'FAQ', href: '#faq' },
     ],
   },
   {
-    title: 'Company',
+    title: 'Get involved',
     links: [
-      { label: 'About', href: '#' },
-      { label: 'Contact', href: '#' },
-      { label: 'Careers', href: '#' },
+      { label: 'Volunteer', href: '#' },
+      { label: 'Sponsor a stall', href: '#' },
+      { label: 'Contact the PTA', href: '#' },
     ],
   },
 ];
 
 export function Footer({
-  brand = 'Webfinity',
-  tagline = 'A premium frontend starter for hackathons and design competitions.',
+  brand = 'Festa Italiana',
+  tagline = 'Lincoln High School’s one-day carnival celebrating the food, art and joy of Italy. Tutti benvenuti, all welcome.',
   columns = defaultColumns,
 }: FooterProps) {
   return (
@@ -53,7 +53,7 @@ export function Footer({
             className="flex items-center gap-2 font-heading text-lg font-bold"
           >
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-sm font-black text-white">
-              W
+              F
             </span>
             {brand}
           </a>
@@ -61,7 +61,7 @@ export function Footer({
             {tagline}
           </p>
           <div className="mt-5 flex gap-3">
-            {[Github, Twitter, Linkedin].map((Icon, i) => (
+            {[Instagram, Facebook, Youtube].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -95,9 +95,9 @@ export function Footer({
 
       <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row">
         <p>
-          © {new Date().getFullYear()} {brand}. Built for the win.
+          © {new Date().getFullYear()} {brand} · Lincoln High School PTA.
         </p>
-        <p>Crafted with React, Vite & Tailwind.</p>
+        <p>Saturday, October 17. 10am to 8pm at the School Quad.</p>
       </div>
     </Section>
   );

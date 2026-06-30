@@ -16,17 +16,18 @@ export interface NavbarProps {
 }
 
 const defaultLinks: NavLink[] = [
-  { label: 'Features', href: '#features' },
-  { label: 'Bento', href: '#bento' },
-  { label: 'Stats', href: '#stats' },
-  { label: 'Timeline', href: '#timeline' },
+  { label: 'Attractions', href: '#attractions' },
+  { label: 'Piazza', href: '#piazza' },
+  { label: 'Food', href: '#food' },
+  { label: 'Schedule', href: '#schedule' },
+  { label: 'Tickets', href: '#tickets' },
   { label: 'FAQ', href: '#faq' },
 ];
 
 export function Navbar({
-  brand = 'Webfinity',
+  brand = 'Festa Italiana',
   links = defaultLinks,
-  cta = { label: 'Get started', href: '#cta' },
+  cta = { label: 'Get tickets', href: '#tickets' },
 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -53,7 +54,7 @@ export function Navbar({
           className="flex items-center gap-2 font-heading text-base font-bold tracking-tight"
         >
           <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-black text-white">
-            W
+            F
           </span>
           {brand}
         </a>
