@@ -25,14 +25,14 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
       mouseY.set(e.clientY - rect.top);
     };
 
-    const background = useMotionTemplate`radial-gradient(240px circle at ${mouseX}px ${mouseY}px, hsl(var(--primary) / 0.15), transparent 80%)`;
+    const background = useMotionTemplate`radial-gradient(240px circle at ${mouseX}px ${mouseY}px, hsl(var(--primary) / 0.1), transparent 80%)`;
 
     return (
       <div
         ref={ref}
         onMouseMove={spotlight ? handleMouseMove : undefined}
         className={cn(
-          'group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl',
+          'paper-card group relative overflow-hidden p-6 transition-transform duration-200',
           className
         )}
         {...props}

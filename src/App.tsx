@@ -1,5 +1,6 @@
 import { RootLayout } from '@/layouts/RootLayout';
 import { Hero } from '@/components/Hero';
+import { Ornament } from '@/components/assets/Ornament';
 import {
   FeaturesSection,
   BentoSection,
@@ -20,7 +21,8 @@ export default function App() {
         badge="Lincoln High · Saturday, October 17"
         title={
           <>
-            Festa <span className="text-gradient-brand">Italiana</span>
+            Festa{' '}
+            <span className="text-gradient-brand italic">Italiana</span>
             <br className="hidden sm:block" /> 2026
           </>
         }
@@ -32,9 +34,11 @@ export default function App() {
       <FeaturesSection />
       <BentoSection />
       <MetricsSection />
+      <Ornament label="Mangia · Gioca · Balla" />
       <FoodSection />
       <GallerySection />
       <TimelineSection />
+      <Ornament label="Il Programma" />
       <TestimonialsSection />
       <TicketsSection />
       <FAQSection />

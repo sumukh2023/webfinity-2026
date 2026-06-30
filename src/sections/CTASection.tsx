@@ -1,18 +1,22 @@
 import { ArrowRight, CalendarPlus } from 'lucide-react';
 import { Section } from '@/components/Section';
 import { AnimatedButton } from '@/components/AnimatedButton';
-import { AuroraBackground } from '@/components/assets/AuroraBackground';
+import { PaperBackdrop } from '@/components/assets/PaperBackdrop';
+import { Bunting } from '@/components/assets/Bunting';
 import { ScaleIn } from '@/components/animations';
 
 export function CTASection() {
   return (
     <Section id="cta" spacing="lg">
       <ScaleIn>
-        <div className="relative overflow-hidden rounded-3xl border border-border px-6 py-20 text-center">
-          <AuroraBackground grid={false} />
+        <div className="poster-frame relative overflow-hidden rounded-md bg-card/70 px-6 py-20 text-center">
+          <PaperBackdrop fade={false} />
           <div className="relative z-10 mx-auto max-w-2xl">
-            <h2 className="text-gradient font-display text-3xl font-extrabold tracking-tightest sm:text-5xl">
-              Andiamo! Save your spot.
+            <div className="-mt-6 mb-8">
+              <Bunting count={12} />
+            </div>
+            <h2 className="text-gradient font-display text-3xl font-black tracking-tightest sm:text-5xl">
+              Andiamo! <span className="italic text-primary">Save your spot.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground sm:text-lg">
               One day, all of Italy, right here at Lincoln High. Grab a wristband

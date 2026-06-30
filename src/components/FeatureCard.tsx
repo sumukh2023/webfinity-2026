@@ -18,10 +18,10 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <GlassCard className={cn('h-full transition-transform', className)}>
-      <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary ring-1 ring-inset ring-white/10">
+      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-foreground/80 bg-primary text-primary-foreground">
         <Icon className="h-5 w-5" />
       </div>
-      <h3 className="font-heading text-lg font-semibold tracking-tight">
+      <h3 className="font-heading text-xl font-semibold tracking-tight">
         {title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

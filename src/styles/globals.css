@@ -3,70 +3,69 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------ */
-/*  Design Tokens                                                      */
-/*  Switch the entire theme from here. Values are HSL channels so they */
-/*  compose with Tailwind's <alpha-value> (e.g. bg-primary/50).        */
+/*  Design Tokens — "Festa Italiana" vintage Carnevale poster          */
+/*  Aged-paper litho print: oxblood red, peacock teal, mustard gold,   */
+/*  warm ink on cream. HSL channels so they compose with <alpha-value>.*/
 /* ------------------------------------------------------------------ */
 @layer base {
-  /* ----------------------------------------------------------------- */
-  /*  Theme: "Festa Italiana" — warm Mediterranean carnival            */
-  /*  Tricolore-inspired: Italian red (primary) + basil green (accent) */
-  /*  + warm gold highlights, on cream (light) / piazza-night (dark).  */
-  /* ----------------------------------------------------------------- */
   :root {
-    --background: 40 38% 97%;
-    --foreground: 20 14% 12%;
+    --background: 39 38% 90%;
+    --foreground: 22 28% 15%;
 
-    --card: 40 33% 99%;
-    --card-foreground: 20 14% 12%;
+    --card: 40 44% 94%;
+    --card-foreground: 22 28% 15%;
 
-    --primary: 4 74% 48%;
-    --primary-foreground: 40 40% 98%;
+    --primary: 8 64% 44%;
+    --primary-foreground: 40 44% 95%;
 
-    --secondary: 38 28% 91%;
-    --secondary-foreground: 20 10% 18%;
+    --secondary: 38 32% 85%;
+    --secondary-foreground: 22 24% 20%;
 
-    --accent: 147 40% 36%;
-    --accent-foreground: 40 40% 98%;
+    --accent: 186 46% 30%;
+    --accent-foreground: 40 44% 95%;
 
-    --muted: 38 24% 91%;
-    --muted-foreground: 24 8% 40%;
+    --muted: 38 28% 84%;
+    --muted-foreground: 26 14% 38%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --gold: 38 66% 46%;
 
-    --border: 36 22% 85%;
-    --input: 36 22% 85%;
-    --ring: 4 74% 48%;
+    --destructive: 0 64% 44%;
+    --destructive-foreground: 40 44% 95%;
 
-    --radius: 1rem;
+    --border: 30 22% 74%;
+    --input: 30 22% 74%;
+    --ring: 8 64% 44%;
+
+    --radius: 0.25rem;
   }
 
   .dark {
-    --background: 20 16% 7%;
-    --foreground: 40 28% 94%;
+    --background: 24 26% 9%;
+    --foreground: 38 34% 90%;
 
-    --card: 22 14% 10%;
-    --card-foreground: 40 28% 94%;
+    --card: 24 22% 12%;
+    --card-foreground: 38 34% 90%;
 
-    --primary: 6 80% 58%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 8 70% 54%;
+    --primary-foreground: 40 44% 96%;
 
-    --secondary: 22 12% 15%;
-    --secondary-foreground: 40 28% 94%;
+    --secondary: 24 16% 18%;
+    --secondary-foreground: 38 34% 90%;
 
-    --accent: 147 46% 48%;
-    --accent-foreground: 20 16% 7%;
+    --accent: 186 48% 44%;
+    --accent-foreground: 24 26% 9%;
 
-    --muted: 22 12% 15%;
-    --muted-foreground: 34 12% 64%;
+    --muted: 24 16% 18%;
+    --muted-foreground: 36 16% 64%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
+    --gold: 38 70% 56%;
 
-    --border: 24 12% 18%;
-    --input: 24 12% 20%;
-    --ring: 6 80% 58%;
+    --destructive: 0 66% 50%;
+    --destructive-foreground: 40 44% 96%;
+
+    --border: 28 14% 26%;
+    --input: 28 14% 26%;
+    --ring: 8 70% 54%;
   }
 }
 
@@ -87,9 +86,16 @@
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+    /* Faint paper grain on the whole page */
+    background-image:
+      radial-gradient(
+        circle at 1px 1px,
+        hsl(var(--foreground) / 0.04) 1px,
+        transparent 0
+      );
+    background-size: 4px 4px;
   }
 
-  /* Respect users who prefer reduced motion. */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -102,10 +108,9 @@
   }
 
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    @apply bg-primary/25 text-foreground;
   }
 
-  /* Custom, minimal scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -114,42 +119,72 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-border;
+    @apply rounded-full bg-foreground/20;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/40;
+    @apply bg-foreground/40;
   }
 }
 
 /* ------------------------------------------------------------------ */
-/*  Reusable utilities                                                 */
+/*  Reusable utilities — poster / print toolkit                        */
 /* ------------------------------------------------------------------ */
 @layer utilities {
-  /* Gradient clipped to text */
+  /* Headings: solid ink (no AI gradient clip). */
   .text-gradient {
-    @apply bg-gradient-to-br from-foreground via-foreground to-foreground/40 bg-clip-text text-transparent;
+    @apply text-foreground;
   }
-
+  /* Accent words: oxblood red. */
   .text-gradient-brand {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    @apply text-primary;
   }
 
-  /* Frosted glass surface */
+  /* A "printed card" surface: paper with an inked border + hard offset. */
+  .paper-card {
+    @apply rounded-md border-2 border-foreground/15 bg-card;
+    box-shadow: 4px 4px 0 0 hsl(var(--foreground) / 0.1);
+  }
+
+  /* Frosted bar fallback (used by the nav) — solid paper, not glass. */
   .glass {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+    @apply border border-foreground/15 bg-card/85 backdrop-blur-md;
   }
 
-  /* Subtle film-grain noise overlay (set as a background) */
+  /* Halftone dot field — the unmistakable vintage-print texture. */
+  .halftone {
+    background-image: radial-gradient(
+      hsl(var(--foreground) / 0.22) 22%,
+      transparent 23%
+    );
+    background-size: 9px 9px;
+  }
+  .halftone-primary {
+    background-image: radial-gradient(
+      hsl(var(--primary) / 0.5) 22%,
+      transparent 23%
+    );
+    background-size: 9px 9px;
+  }
+
+  /* Film-grain noise overlay. */
   .noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Animated conic/linear brand background */
-  .bg-aurora {
-    @apply animate-aurora bg-aurora bg-[length:200%_200%];
+  /* Double-rule poster frame. */
+  .poster-frame {
+    box-shadow:
+      0 0 0 2px hsl(var(--foreground) / 0.85),
+      0 0 0 6px hsl(var(--background)),
+      0 0 0 8px hsl(var(--foreground) / 0.85);
   }
 
-  /* Mask edges to transparent — great for marquees */
+  /* Ticket-stub perforation between two areas. */
+  .perforation {
+    border-left: 2px dashed hsl(var(--foreground) / 0.35);
+  }
+
+  /* Mask edges to transparent — great for marquees. */
   .mask-fade-x {
     -webkit-mask-image: linear-gradient(
       to right,

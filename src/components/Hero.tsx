@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { ArrowRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AuroraBackground } from '@/components/assets/AuroraBackground';
+import { PaperBackdrop } from '@/components/assets/PaperBackdrop';
+import { Bunting } from '@/components/assets/Bunting';
 import { containerVariants, childVariants } from '@/utils/motion';
 
 export interface HeroProps {
@@ -31,27 +31,34 @@ export function Hero({
   return (
     <section
       id="top"
-      className="relative flex min-h-[92vh] items-center overflow-hidden pt-28"
+      className="relative flex min-h-[94vh] items-center overflow-hidden pt-24"
     >
-      <AuroraBackground />
+      <PaperBackdrop />
 
       <div className="container relative z-10">
+        {/* The poster */}
         <motion.div
           variants={containerVariants(0.12, 0.1)}
           initial="hidden"
           animate="visible"
-          className="mx-auto max-w-3xl text-center"
+          className="poster-frame mx-auto max-w-3xl rounded-md bg-card/70 px-6 py-12 text-center backdrop-blur-[2px] sm:px-12 sm:py-16"
         >
-          <motion.div variants={childVariants} className="flex justify-center">
-            <Badge variant="glass" className="mb-6">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
-              {badge}
-            </Badge>
+          <div className="-mt-2 mb-8">
+            <Bunting />
+          </div>
+
+          <motion.div
+            variants={childVariants}
+            className="flex items-center justify-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.3em] text-primary"
+          >
+            <Star className="h-3.5 w-3.5 fill-primary" />
+            {badge}
+            <Star className="h-3.5 w-3.5 fill-primary" />
           </motion.div>
 
           <motion.h1
             variants={childVariants}
-            className="text-gradient font-display text-4xl font-extrabold leading-[1.05] tracking-tightest sm:text-6xl md:text-7xl"
+            className="mt-6 font-display text-5xl font-black leading-[0.95] tracking-tightest sm:text-7xl md:text-8xl"
           >
             {title}
           </motion.h1>
@@ -73,14 +80,14 @@ export function Hero({
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button variant="glass" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild>
               <a href={secondaryCta.href}>{secondaryCta.label}</a>
             </Button>
           </motion.div>
 
           <motion.p
             variants={childVariants}
-            className="mt-8 text-xs uppercase tracking-widest text-muted-foreground/70"
+            className="mt-8 border-t border-foreground/15 pt-6 font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground"
           >
             {meta}
           </motion.p>

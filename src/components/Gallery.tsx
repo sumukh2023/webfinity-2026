@@ -1,12 +1,15 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/utils/cn';
 import { containerVariants, childVariants } from '@/utils/motion';
 
 export interface GalleryItem {
-  /** Image URL. If omitted, a themed gradient placeholder is shown. */
+  /** Image URL. If omitted, `node` or a themed placeholder is shown. */
   src?: string;
   alt?: string;
   caption?: string;
+  /** Custom media (e.g. an inline SVG illustration) rendered as the tile. */
+  node?: React.ReactNode;
   /** Make this tile span two rows for a masonry feel. */
   tall?: boolean;
 }
@@ -54,7 +57,7 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
           key={item.caption ?? item.src ?? i}
           variants={childVariants}
           className={cn(
-            'group relative overflow-hidden rounded-2xl border border-border',
+            'group relative overflow-hidden rounded-md border-2 border-foreground/20',
             item.tall && 'row-span-2'
           )}
         >
@@ -65,6 +68,10 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+          ) : item.node ? (
+            <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
+              {item.node}
+            </div>
           ) : (
             <div
               aria-hidden
