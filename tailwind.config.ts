@@ -31,7 +31,6 @@ const config: Config = {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
-        gold: 'hsl(var(--gold))',
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
@@ -53,11 +52,11 @@ const config: Config = {
         '2xl': 'calc(var(--radius) + 8px)',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Editorial serif for an Italian, festa-style headline voice.
-        display: ['Fraunces', 'Sora', 'Georgia', 'serif'],
-        heading: ['Fraunces', 'Space Grotesk', 'Georgia', 'serif'],
-        body: ['Manrope', 'Inter', 'sans-serif'],
+        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Characterful sans display — not a serif, not Inter.
+        display: ['"Bricolage Grotesque"', 'Manrope', 'sans-serif'],
+        heading: ['"Bricolage Grotesque"', 'Manrope', 'sans-serif'],
+        body: ['Manrope', 'ui-sans-serif', 'sans-serif'],
       },
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1rem' }],

@@ -41,7 +41,7 @@ const defaultColumns: FooterColumn[] = [
 
 export function Footer({
   brand = 'Festa Italiana',
-  tagline = 'Lincoln High School’s one-day carnival celebrating the food, art and joy of Italy. Tutti benvenuti — all welcome.',
+  tagline = 'Lincoln High School’s one-day carnival celebrating the food, art and joy of Italy. Tutti benvenuti, all welcome.',
   columns = defaultColumns,
 }: FooterProps) {
   return (
@@ -97,7 +97,7 @@ export function Footer({
         <p>
           © {new Date().getFullYear()} {brand} · Lincoln High School PTA.
         </p>
-        <p>Saturday, October 17 · 10am–8pm · School Quad</p>
+        <p>Saturday, October 17. 10am to 8pm at the School Quad.</p>
       </div>
     </Section>
   );

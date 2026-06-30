@@ -7,7 +7,6 @@ export function BentoSection() {
   return (
     <Section id="piazza" spacing="lg" className="bg-secondary/20">
       <SectionHeading
-        eyebrow="Map of the quad"
         title="Wander the piazza"
         description="Five zones, each a different corner of Italy. Follow the bunting and let your nose lead the way."
       />
@@ -17,7 +16,7 @@ export function BentoSection() {
           <BentoCard
             colSpan={2}
             rowSpan={2}
-            eyebrow="Main stage · Roma"
+            eyebrow="Main stage, Roma"
             title="The Colosseum arena"
             description="Bounce-castle gladiators by day, live band and tarantella by night. Hourly games with prizes drawn on the big screen."
             className="justify-between"

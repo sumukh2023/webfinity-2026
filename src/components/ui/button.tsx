@@ -4,21 +4,22 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:translate-y-0 active:shadow-none',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:translate-y-px',
   {
     variants: {
       variant: {
         default:
-          'border-2 border-foreground/80 bg-primary text-primary-foreground shadow-[3px_3px_0_0_hsl(var(--foreground)/0.85)] hover:-translate-y-0.5 hover:shadow-[4px_5px_0_0_hsl(var(--foreground)/0.85)]',
+          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(14_80%_49%/0.6)] hover:-translate-y-0.5 hover:brightness-[1.05]',
+        // kept for API compat; same intentful solid as default
         gradient:
-          'border-2 border-foreground/80 bg-gold text-foreground shadow-[3px_3px_0_0_hsl(var(--foreground)/0.85)] hover:-translate-y-0.5 hover:shadow-[4px_5px_0_0_hsl(var(--foreground)/0.85)]',
+          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(14_80%_49%/0.6)] hover:-translate-y-0.5 hover:brightness-[1.05]',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         outline:
-          'border-2 border-foreground/70 bg-transparent hover:bg-secondary hover:text-secondary-foreground',
+          'border border-foreground/25 bg-transparent text-foreground hover:bg-secondary',
         ghost: 'hover:bg-secondary hover:text-secondary-foreground',
         glass:
-          'border-2 border-foreground/25 bg-card/80 text-foreground backdrop-blur-md hover:bg-card',
+          'border border-border bg-card/80 text-foreground backdrop-blur-md hover:bg-card',
         link: 'text-primary underline-offset-4 hover:underline',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',

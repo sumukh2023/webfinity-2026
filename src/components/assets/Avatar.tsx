@@ -1,11 +1,10 @@
 import { cn } from '@/utils/cn';
 
-const GRADIENTS = [
-  'from-indigo-500 to-fuchsia-500',
-  'from-cyan-500 to-blue-500',
-  'from-amber-500 to-rose-500',
-  'from-emerald-500 to-teal-500',
-  'from-violet-500 to-purple-500',
+// On-brand solid fills (single accent + neutrals), no AI-palette gradients.
+const FILLS = [
+  'bg-primary text-primary-foreground',
+  'bg-foreground text-background',
+  'bg-secondary text-secondary-foreground',
 ];
 
 function initials(name: string) {
@@ -27,13 +26,13 @@ export function Avatar({
   size?: number;
   className?: string;
 }) {
-  const gradient = GRADIENTS[name.length % GRADIENTS.length];
+  const fill = FILLS[name.length % FILLS.length];
   return (
     <span
       style={{ width: size, height: size, fontSize: size * 0.36 }}
       className={cn(
-        'inline-grid shrink-0 place-items-center rounded-full bg-gradient-to-br font-semibold text-white ring-2 ring-background',
-        gradient,
+        'inline-grid shrink-0 place-items-center rounded-full font-semibold ring-2 ring-background',
+        fill,
         className
       )}
     >

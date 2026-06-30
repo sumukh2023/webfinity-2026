@@ -4,7 +4,7 @@ import { Timeline } from '@/components/Timeline';
 const items = [
   {
     time: '10:00',
-    title: 'Gates open · Buongiorno!',
+    title: 'Gates open, buongiorno!',
     description:
       'Espresso and cornetti at the entrance, live accordion, and the ribbon-cutting by the principal in the main piazza.',
   },
@@ -12,7 +12,7 @@ const items = [
     time: '12:00',
     title: 'Tarantella dance lesson',
     description:
-      'Everyone welcome on the main stage — no experience needed. Pizza alley fires up its first margheritas.',
+      'Everyone welcome on the main stage, no experience needed. Pizza alley fires up its first margheritas.',
   },
   {
     time: '15:00',
@@ -24,13 +24,13 @@ const items = [
     time: '17:00',
     title: 'Prize draw & gelato hour',
     description:
-      'Cash in your game tickets at the prize cart, then cool down — all twelve gelato flavours, half price.',
+      'Cash in your game tickets at the prize cart, then cool down. All twelve gelato flavours, half price.',
   },
   {
     time: '19:30',
     title: 'Lantern walk & finale',
     description:
-      'The band plays out the night as the quad fills with paper lanterns. Buonanotte — see you next year.',
+      'The band plays out the night as the quad fills with paper lanterns. Buonanotte, and see you next year.',
   },
 ];
 

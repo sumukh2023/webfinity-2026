@@ -15,7 +15,7 @@ const features = [
     icon: Pizza,
     title: 'Street food from every region',
     description:
-      'Wood-fired pizza, fresh arancini, focaccia and cannoli — cooked on-site by our culinary club and local nonni.',
+      'Wood-fired pizza, fresh arancini, focaccia and cannoli, cooked on-site by our culinary club and local nonni.',
   },
   {
     icon: Trophy,
@@ -39,13 +39,13 @@ const features = [
     icon: IceCream2,
     title: 'The gelato lab',
     description:
-      'Twelve flavours churned fresh — from stracciatella to blood-orange sorbetto. Senior science class explains the chemistry.',
+      'Twelve flavours churned fresh, from stracciatella to blood-orange sorbetto. Senior science class explains the chemistry.',
   },
   {
     icon: Ticket,
     title: 'All for a good cause',
     description:
-      'Every euro—er, dollar—goes to the Lincoln High arts and exchange-trip fund. Have fun, support your school.',
+      'Every dollar goes to the Lincoln High arts and exchange-trip fund. Have fun, support your school.',
   },
 ];
 

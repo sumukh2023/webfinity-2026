@@ -18,7 +18,7 @@ const items = [
   },
   {
     quote:
-      'We raised enough at the bake-off stall to fund the spring exchange trip to Florence. Tutto bene — and so much fun.',
+      'We raised enough at the bake-off stall to fund the spring exchange trip to Florence. Tutto bene, and so much fun.',
     name: 'Sofia Greco',
     role: 'Student council president',
     rating: 5,
@@ -29,7 +29,6 @@ export function TestimonialsSection() {
   return (
     <Section spacing="lg" className="bg-secondary/20">
       <SectionHeading
-        eyebrow="From the community"
         title="Why everyone comes back"
         description="Students, teachers and families on what makes the festa their favourite day of the year."
       />

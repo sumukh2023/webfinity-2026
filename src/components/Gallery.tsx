@@ -26,18 +26,9 @@ const colMap = {
   4: 'sm:grid-cols-2 lg:grid-cols-4',
 };
 
-const PLACEHOLDER_GRADIENTS = [
-  'from-indigo-500/40 to-fuchsia-500/40',
-  'from-cyan-500/40 to-blue-500/40',
-  'from-amber-500/40 to-rose-500/40',
-  'from-emerald-500/40 to-teal-500/40',
-  'from-violet-500/40 to-purple-500/40',
-];
-
 /**
- * A responsive image gallery with hover zoom and caption reveal. Works with real
- * images (`src`) or renders themed gradient placeholders when none are provided —
- * so it's useful on competition day even before assets exist.
+ * A responsive image gallery with hover zoom and caption reveal. Prefers real
+ * images (`src`); falls back to a custom `node` or a neutral tinted tile.
  */
 export function Gallery({ items, className, columns = 3 }: GalleryProps) {
   return (
@@ -57,7 +48,7 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
           key={item.caption ?? item.src ?? i}
           variants={childVariants}
           className={cn(
-            'group relative overflow-hidden rounded-md border-2 border-foreground/20',
+            'group relative overflow-hidden rounded-xl border border-border',
             item.tall && 'row-span-2'
           )}
         >
@@ -73,13 +64,7 @@ export function Gallery({ items, className, columns = 3 }: GalleryProps) {
               {item.node}
             </div>
           ) : (
-            <div
-              aria-hidden
-              className={cn(
-                'h-full w-full bg-gradient-to-br transition-transform duration-500 group-hover:scale-105',
-                PLACEHOLDER_GRADIENTS[i % PLACEHOLDER_GRADIENTS.length]
-              )}
-            />
+            <div aria-hidden className="h-full w-full bg-secondary" />
           )}
 
           {item.caption && (

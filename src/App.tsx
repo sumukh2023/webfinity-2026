@@ -1,6 +1,5 @@
 import { RootLayout } from '@/layouts/RootLayout';
 import { Hero } from '@/components/Hero';
-import { Ornament } from '@/components/assets/Ornament';
 import {
   FeaturesSection,
   BentoSection,
@@ -18,27 +17,22 @@ export default function App() {
   return (
     <RootLayout>
       <Hero
-        badge="Lincoln High · Saturday, October 17"
-        title={
-          <>
-            Festa{' '}
-            <span className="text-gradient-brand italic">Italiana</span>
-            <br className="hidden sm:block" /> 2026
-          </>
-        }
-        subtitle="For one day, the school quad becomes an Italian piazza — wood-fired pizza, carnival games, fresh gelato, live tarantella and an art piazza. Buon divertimento!"
-        primaryCta={{ label: 'Get your tickets', href: '#tickets' }}
+        label="Festa Italiana 2026"
+        title="A whole day of Italy, at Lincoln High."
+        subtitle="Street food, carnival games, gelato, live music and an art piazza. One Saturday, the whole quad becomes a festival."
+        primaryCta={{ label: 'Get tickets', href: '#tickets' }}
         secondaryCta={{ label: 'See the schedule', href: '#schedule' }}
-        meta="School Quad · 10am–8pm · Rain or shine · All welcome"
+        image={{
+          src: 'https://picsum.photos/seed/festa-hero-piazza/1000/1250',
+          alt: 'A lively Italian street festival',
+        }}
       />
+      <MetricsSection />
       <FeaturesSection />
       <BentoSection />
-      <MetricsSection />
-      <Ornament label="Mangia · Gioca · Balla" />
       <FoodSection />
       <GallerySection />
       <TimelineSection />
-      <Ornament label="Il Programma" />
       <TestimonialsSection />
       <TicketsSection />
       <FAQSection />

@@ -3,69 +3,66 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------ */
-/*  Design Tokens — "Festa Italiana" vintage Carnevale poster          */
-/*  Aged-paper litho print: oxblood red, peacock teal, mustard gold,   */
-/*  warm ink on cream. HSL channels so they compose with <alpha-value>.*/
+/*  Design Tokens — "Festa Italiana"                                   */
+/*  Terracotta + Slate: one saturated accent on cool neutrals.        */
+/*  Single locked LIGHT theme. HSL channels for <alpha-value>.         */
 /* ------------------------------------------------------------------ */
 @layer base {
   :root {
-    --background: 39 38% 90%;
-    --foreground: 22 28% 15%;
+    --background: 210 20% 98%;
+    --foreground: 222 24% 14%;
 
-    --card: 40 44% 94%;
-    --card-foreground: 22 28% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 24% 14%;
 
-    --primary: 8 64% 44%;
-    --primary-foreground: 40 44% 95%;
+    --primary: 14 80% 49%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 38 32% 85%;
-    --secondary-foreground: 22 24% 20%;
+    --secondary: 210 18% 94%;
+    --secondary-foreground: 222 18% 22%;
 
-    --accent: 186 46% 30%;
-    --accent-foreground: 40 44% 95%;
+    /* accent == primary: ONE brand colour across the whole page */
+    --accent: 14 80% 49%;
+    --accent-foreground: 0 0% 100%;
 
-    --muted: 38 28% 84%;
-    --muted-foreground: 26 14% 38%;
+    --muted: 210 18% 94%;
+    --muted-foreground: 218 12% 40%;
 
-    --gold: 38 66% 46%;
+    --destructive: 0 70% 46%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 64% 44%;
-    --destructive-foreground: 40 44% 95%;
+    --border: 214 16% 89%;
+    --input: 214 16% 89%;
+    --ring: 14 80% 49%;
 
-    --border: 30 22% 74%;
-    --input: 30 22% 74%;
-    --ring: 8 64% 44%;
-
-    --radius: 0.25rem;
+    --radius: 0.6rem;
   }
 
   .dark {
-    --background: 24 26% 9%;
-    --foreground: 38 34% 90%;
+    --background: 222 24% 9%;
+    --foreground: 210 20% 96%;
 
-    --card: 24 22% 12%;
-    --card-foreground: 38 34% 90%;
+    --card: 222 22% 12%;
+    --card-foreground: 210 20% 96%;
 
-    --primary: 8 70% 54%;
-    --primary-foreground: 40 44% 96%;
+    --primary: 14 82% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 24 16% 18%;
-    --secondary-foreground: 38 34% 90%;
+    --secondary: 222 16% 18%;
+    --secondary-foreground: 210 20% 96%;
 
-    --accent: 186 48% 44%;
-    --accent-foreground: 24 26% 9%;
+    --accent: 14 82% 56%;
+    --accent-foreground: 0 0% 100%;
 
-    --muted: 24 16% 18%;
-    --muted-foreground: 36 16% 64%;
+    --muted: 222 16% 18%;
+    --muted-foreground: 215 14% 64%;
 
-    --gold: 38 70% 56%;
+    --destructive: 0 68% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 66% 50%;
-    --destructive-foreground: 40 44% 96%;
-
-    --border: 28 14% 26%;
-    --input: 28 14% 26%;
-    --ring: 8 70% 54%;
+    --border: 220 14% 24%;
+    --input: 220 14% 24%;
+    --ring: 14 82% 56%;
   }
 }
 
@@ -86,14 +83,6 @@
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
-    /* Faint paper grain on the whole page */
-    background-image:
-      radial-gradient(
-        circle at 1px 1px,
-        hsl(var(--foreground) / 0.04) 1px,
-        transparent 0
-      );
-    background-size: 4px 4px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -108,7 +97,7 @@
   }
 
   ::selection {
-    @apply bg-primary/25 text-foreground;
+    @apply bg-primary/20 text-foreground;
   }
 
   ::-webkit-scrollbar {
@@ -119,72 +108,41 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-foreground/20;
+    @apply rounded-full bg-foreground/15;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-foreground/40;
+    @apply bg-foreground/30;
   }
 }
 
 /* ------------------------------------------------------------------ */
-/*  Reusable utilities — poster / print toolkit                        */
+/*  Reusable utilities                                                 */
 /* ------------------------------------------------------------------ */
 @layer utilities {
-  /* Headings: solid ink (no AI gradient clip). */
+  /* Headings render as solid ink (no gradient-clip tell). */
   .text-gradient {
     @apply text-foreground;
   }
-  /* Accent words: oxblood red. */
+  /* Accent words use the single brand colour. */
   .text-gradient-brand {
     @apply text-primary;
   }
 
-  /* A "printed card" surface: paper with an inked border + hard offset. */
+  /* The one card surface for the whole page: hairline border, soft
+     slate-tinted shadow (never pure-black on light). */
   .paper-card {
-    @apply rounded-md border-2 border-foreground/15 bg-card;
-    box-shadow: 4px 4px 0 0 hsl(var(--foreground) / 0.1);
-  }
-
-  /* Frosted bar fallback (used by the nav) — solid paper, not glass. */
-  .glass {
-    @apply border border-foreground/15 bg-card/85 backdrop-blur-md;
-  }
-
-  /* Halftone dot field — the unmistakable vintage-print texture. */
-  .halftone {
-    background-image: radial-gradient(
-      hsl(var(--foreground) / 0.22) 22%,
-      transparent 23%
-    );
-    background-size: 9px 9px;
-  }
-  .halftone-primary {
-    background-image: radial-gradient(
-      hsl(var(--primary) / 0.5) 22%,
-      transparent 23%
-    );
-    background-size: 9px 9px;
-  }
-
-  /* Film-grain noise overlay. */
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* Double-rule poster frame. */
-  .poster-frame {
+    @apply rounded-xl border border-border bg-card;
     box-shadow:
-      0 0 0 2px hsl(var(--foreground) / 0.85),
-      0 0 0 6px hsl(var(--background)),
-      0 0 0 8px hsl(var(--foreground) / 0.85);
+      0 1px 2px hsl(222 24% 14% / 0.04),
+      0 8px 24px -12px hsl(222 24% 14% / 0.12);
   }
 
-  /* Ticket-stub perforation between two areas. */
-  .perforation {
-    border-left: 2px dashed hsl(var(--foreground) / 0.35);
+  /* Solid translucent bar for the nav (not glassmorphism on everything). */
+  .glass {
+    @apply border border-border bg-card/85 backdrop-blur-md;
   }
 
-  /* Mask edges to transparent — great for marquees. */
+  /* Mask edges to transparent — for the marquee. */
   .mask-fade-x {
     -webkit-mask-image: linear-gradient(
       to right,

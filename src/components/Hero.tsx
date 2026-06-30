@@ -1,80 +1,65 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PaperBackdrop } from '@/components/assets/PaperBackdrop';
-import { Bunting } from '@/components/assets/Bunting';
 import { containerVariants, childVariants } from '@/utils/motion';
 
 export interface HeroProps {
-  badge?: string;
+  /** Small plain label above the headline (no pill chip). */
+  label?: string;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
-  /** Small uppercase line beneath the CTAs (e.g. tech stack, location, tags). */
-  meta?: React.ReactNode;
+  image?: { src: string; alt: string };
 }
 
 export function Hero({
-  badge = 'Webfinity 2026 Starter',
-  title = (
-    <>
-      Ship <span className="text-gradient-brand">award-winning</span> sites
-      <br className="hidden sm:block" /> before the clock runs out.
-    </>
-  ),
-  subtitle = 'A premium, reusable frontend foundation — animation system, component library, and design tokens — so competition day is pure design and build.',
+  label = 'Webfinity 2026',
+  title = 'A premium frontend starter, ready before the clock starts.',
+  subtitle = 'A reusable foundation with an animation system, component library and design tokens, so competition day is pure design and build.',
   primaryCta = { label: 'Explore components', href: '#features' },
-  secondaryCta = { label: 'View the bento', href: '#bento' },
-  meta = 'React · Vite · Tailwind · Framer Motion · GSAP · Lenis',
+  secondaryCta = { label: 'See the bento', href: '#bento' },
+  image,
 }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative flex min-h-[94vh] items-center overflow-hidden pt-24"
+      className="relative overflow-hidden pt-24 sm:pt-28"
     >
-      <PaperBackdrop />
-
-      <div className="container relative z-10">
-        {/* The poster */}
+      <div className="container grid items-center gap-10 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
         <motion.div
-          variants={containerVariants(0.12, 0.1)}
+          variants={containerVariants(0.1, 0.08)}
           initial="hidden"
           animate="visible"
-          className="poster-frame mx-auto max-w-3xl rounded-md bg-card/70 px-6 py-12 text-center backdrop-blur-[2px] sm:px-12 sm:py-16"
         >
-          <div className="-mt-2 mb-8">
-            <Bunting />
-          </div>
-
-          <motion.div
-            variants={childVariants}
-            className="flex items-center justify-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.3em] text-primary"
-          >
-            <Star className="h-3.5 w-3.5 fill-primary" />
-            {badge}
-            <Star className="h-3.5 w-3.5 fill-primary" />
-          </motion.div>
+          {label && (
+            <motion.p
+              variants={childVariants}
+              className="font-heading text-sm font-semibold text-primary"
+            >
+              {label}
+            </motion.p>
+          )}
 
           <motion.h1
             variants={childVariants}
-            className="mt-6 font-display text-5xl font-black leading-[0.95] tracking-tightest sm:text-7xl md:text-8xl"
+            className="mt-4 max-w-[15ch] font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
           >
             {title}
           </motion.h1>
 
           <motion.p
             variants={childVariants}
-            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="mt-6 max-w-[42ch] text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
             {subtitle}
           </motion.p>
 
           <motion.div
             variants={childVariants}
-            className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-            <Button variant="gradient" size="lg" className="group" asChild>
+            <Button variant="default" size="lg" className="group" asChild>
               <a href={primaryCta.href}>
                 {primaryCta.label}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -84,14 +69,26 @@ export function Hero({
               <a href={secondaryCta.href}>{secondaryCta.label}</a>
             </Button>
           </motion.div>
-
-          <motion.p
-            variants={childVariants}
-            className="mt-8 border-t border-foreground/15 pt-6 font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground"
-          >
-            {meta}
-          </motion.p>
         </motion.div>
+
+        {image && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-border shadow-[0_24px_60px_-24px_hsl(222_24%_14%/0.35)]">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+            {/* one accent block anchoring the image, not a floating chip */}
+            <div className="absolute -bottom-4 -left-4 -z-10 hidden h-32 w-32 rounded-2xl bg-primary/10 sm:block" />
+          </motion.div>
+        )}
       </div>
     </section>
   );
