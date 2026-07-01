@@ -16,18 +16,18 @@ export interface NavbarProps {
 }
 
 const defaultLinks: NavLink[] = [
-  { label: 'Attractions', href: '#attractions' },
-  { label: 'Piazza', href: '#piazza' },
-  { label: 'Food', href: '#food' },
+  { label: 'About', href: '#about' },
+  { label: 'Carnival', href: '#carnival' },
   { label: 'Schedule', href: '#schedule' },
-  { label: 'Tickets', href: '#tickets' },
+  { label: 'Experiences', href: '#experiences' },
+  { label: 'Food', href: '#food' },
   { label: 'FAQ', href: '#faq' },
 ];
 
 export function Navbar({
-  brand = 'Festa Italiana',
+  brand = 'Flash @ Brigade',
   links = defaultLinks,
-  cta = { label: 'Get tickets', href: '#tickets' },
+  cta = { label: 'View Schedule', href: '#schedule' },
 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -53,7 +53,7 @@ export function Navbar({
           href="#top"
           className="flex items-center gap-2 font-heading text-base font-bold tracking-tight"
         >
-          <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-black text-white">
+          <span className="ring-gold/40 grid h-7 w-7 place-items-center rounded-md bg-primary font-display text-sm font-semibold text-primary-foreground ring-1 ring-inset">
             F
           </span>
           {brand}

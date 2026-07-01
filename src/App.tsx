@@ -1,42 +1,48 @@
 import { RootLayout } from '@/layouts/RootLayout';
 import { Hero } from '@/components/Hero';
+import { PiazzaScene } from '@/components/assets/PiazzaScene';
 import {
-  FeaturesSection,
+  AboutSection,
+  GallerySection,
   BentoSection,
   MetricsSection,
-  FoodSection,
-  GallerySection,
   TimelineSection,
-  TestimonialsSection,
-  TicketsSection,
+  FeaturesSection,
+  PerformancesSection,
+  FoodSection,
+  CharitySection,
   FAQSection,
-  CTASection,
 } from '@/sections';
 
 export default function App() {
   return (
     <RootLayout>
       <Hero
-        label="Festa Italiana 2026"
-        title="A whole day of Italy, at Lincoln High."
-        subtitle="Street food, carnival games, gelato, live music and an art piazza. One Saturday, the whole quad becomes a festival."
-        primaryCta={{ label: 'Get tickets', href: '#tickets' }}
-        secondaryCta={{ label: 'See the schedule', href: '#schedule' }}
-        image={{
-          src: 'https://picsum.photos/seed/festa-hero-piazza/1000/1250',
-          alt: 'A lively Italian street festival',
-        }}
+        label="The Brigade School @ Malleswaram · Sat 14 Nov 2026"
+        title={
+          <>
+            <span className="block">Flash @ Brigade</span>
+            <span className="mt-3 block font-display text-3xl font-normal italic text-primary sm:text-4xl lg:text-5xl">
+              Namma Mia Carpisa
+            </span>
+          </>
+        }
+        subtitle="Experience the elegance, flavours, music and timeless charm of Italy at The Brigade School @ Malleswaram’s biggest annual fundraising carnival."
+        primaryCta={{ label: 'Explore the Carnival', href: '#carnival' }}
+        secondaryCta={{ label: 'View Schedule', href: '#schedule' }}
+        media={<PiazzaScene variant="coast" />}
+        mediaLabel="A cinematic Italian coastal piazza at golden hour"
       />
-      <MetricsSection />
-      <FeaturesSection />
-      <BentoSection />
-      <FoodSection />
+      <AboutSection />
       <GallerySection />
+      <BentoSection />
+      <MetricsSection />
       <TimelineSection />
-      <TestimonialsSection />
-      <TicketsSection />
+      <FeaturesSection />
+      <PerformancesSection />
+      <FoodSection />
+      <CharitySection />
       <FAQSection />
-      <CTASection />
     </RootLayout>
   );
 }

@@ -53,9 +53,10 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Characterful sans display — not a serif, not Inter.
-        display: ['"Bricolage Grotesque"', 'Manrope', 'sans-serif'],
-        heading: ['"Bricolage Grotesque"', 'Manrope', 'sans-serif'],
+        // High-contrast editorial serif for display — Italian fashion /
+        // Renaissance feel, paired with a clean grotesque for body copy.
+        display: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+        heading: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
         body: ['Manrope', 'ui-sans-serif', 'sans-serif'],
       },
       fontSize: {
@@ -71,13 +72,13 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'aurora':
-          'linear-gradient(115deg, hsl(var(--primary)), #e0a82e, hsl(var(--accent)), hsl(var(--primary)))',
+          'linear-gradient(115deg, hsl(var(--primary)), hsl(var(--gold)), hsl(var(--accent)), hsl(var(--primary)))',
       },
       boxShadow: {
         glow: '0 0 0 1px hsl(var(--border)), 0 8px 40px -8px hsl(var(--primary) / 0.35)',
         'glow-lg': '0 0 80px -20px hsl(var(--primary) / 0.55)',
         elevated:
-          '0 1px 2px hsl(0 0% 0% / 0.2), 0 8px 24px -8px hsl(0 0% 0% / 0.35)',
+          '0 1px 2px hsl(22 18% 14% / 0.08), 0 12px 32px -12px hsl(22 18% 14% / 0.22)',
       },
       keyframes: {
         'accordion-down': {

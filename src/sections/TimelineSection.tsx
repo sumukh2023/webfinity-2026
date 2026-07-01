@@ -4,43 +4,67 @@ import { Timeline } from '@/components/Timeline';
 const items = [
   {
     time: '10:00',
-    title: 'Gates open, buongiorno!',
+    title: 'Opening Ceremony',
     description:
-      'Espresso and cornetti at the entrance, live accordion, and the ribbon-cutting by the principal in the main piazza.',
+      'The gates swing open onto the piazza. A ribbon-cutting, a welcome from the Principal, and the tricolore rises over the campus.',
+  },
+  {
+    time: '10:45',
+    title: 'School Orchestra',
+    description:
+      'Our student orchestra opens the main stage with a programme of Italian classics, from Vivaldi to film scores.',
   },
   {
     time: '12:00',
-    title: 'Tarantella dance lesson',
+    title: 'Italian Fashion Showcase',
     description:
-      'Everyone welcome on the main stage, no experience needed. Pizza alley fires up its first margheritas.',
+      'A student-styled runway celebrating Milanese elegance: a moving gallery of colour, tailoring and confidence.',
+  },
+  {
+    time: '13:30',
+    title: 'Dance Productions',
+    description:
+      'Ensemble dance pieces choreographed by students, weaving classical and contemporary movement across the stage.',
   },
   {
     time: '15:00',
-    title: 'The Great Bake-Off',
+    title: 'Live Music',
     description:
-      'Students and families go head-to-head in the cannoli and tiramisù contest. Public tasting (and voting) right after.',
+      'Choir, strings and instrumental ensembles take turns through the afternoon as the food street hits full swing.',
   },
   {
-    time: '17:00',
-    title: 'Prize draw & gelato hour',
+    time: '16:30',
+    title: 'Street Performers',
     description:
-      'Cash in your game tickets at the prize cart, then cool down. All twelve gelato flavours, half price.',
+      'Roaming acts spill into the piazza: living statues, jugglers and mime bringing every corner to life.',
   },
   {
-    time: '19:30',
-    title: 'Lantern walk & finale',
+    time: '17:30',
+    title: 'Food Festival',
     description:
-      'The band plays out the night as the quad fills with paper lanterns. Buonanotte, and see you next year.',
+      'The golden hour of the food street: tastings, the great bake-off and the aroma of wood-fired ovens everywhere.',
+  },
+  {
+    time: '19:00',
+    title: 'Evening Finale',
+    description:
+      'The full company returns to the stage for a headline performance as lanterns light up across the campus.',
+  },
+  {
+    time: '20:00',
+    title: 'Closing Celebration',
+    description:
+      'A shared toast to the day, the total raised revealed, and a warm buonanotte until next November.',
   },
 ];
 
 export function TimelineSection() {
   return (
-    <Section id="schedule" spacing="lg" className="bg-secondary/20">
+    <Section id="schedule" spacing="lg">
       <SectionHeading
-        eyebrow="Saturday, October 17"
+        eyebrow="Saturday, 14 November 2026"
         title="The day, hour by hour"
-        description="Ten hours of festa, from the first espresso to the last lantern. Come for an hour or stay for it all."
+        description="Ten hours of performance, food and celebration. Arrive for a moment or stay from the first note to the last lantern."
       />
       <div className="mt-16">
         <Timeline items={items} />

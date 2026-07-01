@@ -11,6 +11,13 @@ export interface HeroProps {
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   image?: { src: string; alt: string };
+  /**
+   * Custom hero media (e.g. an inline SVG scene). Rendered in the framed
+   * portrait slot in place of `image` — self-contained, never a broken img.
+   * Provide `mediaLabel` for the accessible name.
+   */
+  media?: React.ReactNode;
+  mediaLabel?: string;
 }
 
 export function Hero({
@@ -20,12 +27,19 @@ export function Hero({
   primaryCta = { label: 'Explore components', href: '#features' },
   secondaryCta = { label: 'See the bento', href: '#bento' },
   image,
+  media,
+  mediaLabel,
 }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24 sm:pt-28"
+      className="marble relative overflow-hidden pt-24 sm:pt-28"
     >
+      {/* soft top vignette so the marble reads as stone, not a flat fill */}
+      <div
+        aria-hidden
+        className="rule-gold pointer-events-none absolute inset-x-0 top-0 h-px"
+      />
       <div className="container grid items-center gap-10 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
         <motion.div
           variants={containerVariants(0.1, 0.08)}
@@ -35,8 +49,9 @@ export function Hero({
           {label && (
             <motion.p
               variants={childVariants}
-              className="font-heading text-sm font-semibold text-primary"
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary"
             >
+              <span className="bg-gold/70 h-px w-8" aria-hidden />
               {label}
             </motion.p>
           )}
@@ -71,22 +86,40 @@ export function Hero({
           </motion.div>
         </motion.div>
 
-        {image && (
+        {(media || image) && (
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-border shadow-[0_24px_60px_-24px_hsl(222_24%_14%/0.35)]">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="aspect-[4/5] w-full object-cover"
+            <div className="ring-gold/20 relative overflow-hidden rounded-2xl border border-border shadow-[0_28px_70px_-28px_hsl(22_18%_14%/0.4)] ring-1 ring-inset">
+              {media ? (
+                <div
+                  role="img"
+                  aria-label={mediaLabel}
+                  className="aspect-[4/5] w-full"
+                >
+                  {media}
+                </div>
+              ) : (
+                image && (
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="aspect-[4/5] w-full object-cover"
+                  />
+                )
+              )}
+              {/* cinematic warm wash over the photograph */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent"
               />
             </div>
-            {/* one accent block anchoring the image, not a floating chip */}
+            {/* two quiet accent blocks anchoring the image, not floating chips */}
             <div className="absolute -bottom-4 -left-4 -z-10 hidden h-32 w-32 rounded-2xl bg-primary/10 sm:block" />
+            <div className="absolute -right-3 -top-3 -z-10 hidden h-20 w-20 rounded-2xl bg-accent/10 sm:block" />
           </motion.div>
         )}
       </div>

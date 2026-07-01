@@ -3,38 +3,53 @@ import { FAQ } from '@/components/FAQ';
 
 const items = [
   {
-    question: 'Where and when is it?',
+    question: 'When and where is Flash @ Brigade?',
     answer:
-      'The Lincoln High School Quad, Saturday October 17, from 10am to 8pm. Rain or shine, the food tents and main stage are all covered.',
+      'Saturday, 14 November 2026, from 10:00 to 20:00 on the campus of The Brigade School @ Malleswaram. The stage and food street run rain or shine.',
   },
   {
-    question: 'How does the food and games money work?',
+    question: 'How does entry work?',
     answer:
-      'Buy a wristband or load a festa card at the entrance, then tap to pay at any stall, no cash needed. Games pay out tickets you redeem for prizes at the cart.',
+      'Entry is by carnival pass, available online in advance and at the gate on the day. Current families and alumni receive a priority entry lane, and details are shared through the school office.',
   },
   {
-    question: 'Are there vegetarian and allergy-friendly options?',
+    question: 'Is parking available?',
     answer:
-      'Plenty. Every stall labels vegetarian, vegan and gluten-free dishes, and the gelato lab keeps dairy-free sorbetti on a separate counter. Ask any volunteer in a green apron.',
+      'Limited parking is available on and around campus, with marshals directing traffic near the Malleswaram entrance. We warmly encourage carpooling or the nearby metro, as spaces fill quickly.',
   },
   {
-    question: 'Can families and younger siblings come?',
+    question: 'How do tickets and credit work?',
     answer:
-      'Absolutely. It’s a community event. Under-12s enter free with a parent, and the Firenze art piazza is built for little hands.',
+      'Your pass includes entry to the whole piazza and every stage performance. Food and games run on a tap-to-pay carnival card you top up at the entrance, so there is no need to carry cash between stalls.',
   },
   {
-    question: 'How can I help out?',
+    question: 'Is there a dress code?',
     answer:
-      'We’d love that. Volunteers, bakers and stall sponsors all keep the festa running. Tap “Get involved” in the footer or email the PTA and we’ll find you a spot.',
+      'Come as you are, though many guests embrace the theme with a touch of Italian elegance. Comfortable shoes are a good idea, as there is a lot of beautiful piazza to wander.',
+  },
+  {
+    question: 'What food options are there?',
+    answer:
+      'A full Italian food street, from wood-fired pizza and fresh pasta to gelato and espresso. Every stall clearly labels vegetarian, vegan and gluten-free dishes. Just ask a volunteer in a green apron.',
+  },
+  {
+    question: 'Is the carnival accessible?',
+    answer:
+      'Yes. The main routes and stage areas are step-free and wheelchair accessible, with accessible restrooms on site and volunteers ready to help. Reach out ahead of the day and we will make sure you are looked after.',
+  },
+  {
+    question: 'Can I take photographs, and how do I pay?',
+    answer:
+      'Personal photography is welcome across the piazza. Payments are cashless throughout. Top up your carnival card with UPI or card at any entry point, then simply tap to pay at every stall and game.',
   },
 ];
 
 export function FAQSection() {
   return (
-    <Section id="faq" spacing="lg">
+    <Section id="faq" spacing="lg" className="bg-secondary/30">
       <SectionHeading
-        title="Before you come"
-        description="The practical stuff, answered. Anything else, just ask a volunteer on the day."
+        title="Good to know before you come"
+        description="The practical details, answered. Anything else, our volunteers will be glad to help on the day."
       />
       <div className="mt-12">
         <FAQ items={items} />

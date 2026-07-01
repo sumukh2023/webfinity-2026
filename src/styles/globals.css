@@ -3,66 +3,75 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------ */
-/*  Design Tokens — "Festa Italiana"                                   */
-/*  Terracotta + Slate: one saturated accent on cool neutrals.        */
-/*  Single locked LIGHT theme. HSL channels for <alpha-value>.         */
+/*  Design Tokens — "Flash @ Brigade · Namma Mia Carpisa"              */
+/*  Warm Italian editorial: terracotta on marble, olive as the         */
+/*  second voice, gilt gold for fine detail. HSL channels for          */
+/*  <alpha-value>. Single locked LIGHT theme.                          */
 /* ------------------------------------------------------------------ */
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 222 24% 14%;
+    /* Warm marble paper, not cool grey */
+    --background: 36 38% 96%;
+    --foreground: 22 18% 14%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 24% 14%;
+    --card: 38 46% 99%;
+    --card-foreground: 22 18% 14%;
 
-    --primary: 14 80% 49%;
-    --primary-foreground: 0 0% 100%;
+    /* Terracotta — the headline brand colour */
+    --primary: 13 74% 47%;
+    --primary-foreground: 38 46% 99%;
 
-    --secondary: 210 18% 94%;
-    --secondary-foreground: 222 18% 22%;
+    --secondary: 34 28% 92%;
+    --secondary-foreground: 22 16% 24%;
 
-    /* accent == primary: ONE brand colour across the whole page */
-    --accent: 14 80% 49%;
-    --accent-foreground: 0 0% 100%;
+    /* Olive green — the earthy second accent */
+    --accent: 78 24% 32%;
+    --accent-foreground: 38 46% 99%;
 
-    --muted: 210 18% 94%;
-    --muted-foreground: 218 12% 40%;
+    --muted: 34 26% 92%;
+    --muted-foreground: 26 10% 38%;
 
-    --destructive: 0 70% 46%;
+    /* Gilt gold — fine detail (stars, rules, glints) */
+    --gold: 38 62% 48%;
+
+    --destructive: 0 66% 46%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 16% 89%;
-    --input: 214 16% 89%;
-    --ring: 14 80% 49%;
+    --border: 34 22% 87%;
+    --input: 34 22% 87%;
+    --ring: 13 74% 47%;
 
-    --radius: 0.6rem;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222 24% 9%;
-    --foreground: 210 20% 96%;
+    /* Evening piazza: warm charcoal under lamplight */
+    --background: 24 16% 8%;
+    --foreground: 36 30% 94%;
 
-    --card: 222 22% 12%;
-    --card-foreground: 210 20% 96%;
+    --card: 24 14% 11%;
+    --card-foreground: 36 30% 94%;
 
-    --primary: 14 82% 56%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 13 78% 55%;
+    --primary-foreground: 24 16% 8%;
 
-    --secondary: 222 16% 18%;
-    --secondary-foreground: 210 20% 96%;
+    --secondary: 24 12% 17%;
+    --secondary-foreground: 36 30% 94%;
 
-    --accent: 14 82% 56%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 78 22% 46%;
+    --accent-foreground: 24 16% 8%;
 
-    --muted: 222 16% 18%;
-    --muted-foreground: 215 14% 64%;
+    --muted: 24 12% 17%;
+    --muted-foreground: 32 12% 62%;
 
-    --destructive: 0 68% 52%;
+    --gold: 38 66% 56%;
+
+    --destructive: 0 64% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 24%;
-    --input: 220 14% 24%;
-    --ring: 14 82% 56%;
+    --border: 26 12% 22%;
+    --input: 26 12% 22%;
+    --ring: 13 78% 55%;
   }
 }
 
@@ -140,6 +149,44 @@
   /* Solid translucent bar for the nav (not glassmorphism on everything). */
   .glass {
     @apply border border-border bg-card/85 backdrop-blur-md;
+  }
+
+  /* Warm marble wash for hero / feature panels: soft veining built from a
+     few offset radial tints on the paper background. Not a mesh gradient —
+     it reads as stone, and stays subtle. */
+  .marble {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(
+        60% 55% at 18% 12%,
+        hsl(var(--primary) / 0.06),
+        transparent 60%
+      ),
+      radial-gradient(
+        50% 60% at 88% 8%,
+        hsl(var(--accent) / 0.07),
+        transparent 55%
+      ),
+      radial-gradient(
+        45% 50% at 70% 95%,
+        hsl(var(--gold) / 0.06),
+        transparent 60%
+      );
+  }
+
+  /* A thin gilt rule for editorial section tops. */
+  .rule-gold {
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--gold) / 0.5),
+      transparent
+    );
+  }
+
+  /* Uppercase editorial kicker — used sparingly, not on every section. */
+  .kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-primary;
   }
 
   /* Mask edges to transparent — for the marquee. */

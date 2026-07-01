@@ -13,13 +13,7 @@ const RED = 'hsl(var(--primary))';
 const TEAL = 'hsl(var(--accent))';
 const GOLD = 'hsl(var(--gold))';
 
-function Frame({
-  bg,
-  children,
-}: {
-  bg: string;
-  children: ReactNode;
-}) {
+function Frame({ bg, children }: { bg: string; children: ReactNode }) {
   return (
     <svg
       viewBox="0 0 400 300"
@@ -54,7 +48,14 @@ function Dots({ color, n = 9 }: { color: string; n?: number }) {
 const Pizza = (
   <Frame bg={TEAL}>
     <Dots color={CREAM} />
-    <circle cx={200} cy={150} r={104} fill={CREAM} stroke={INK} strokeWidth={5} />
+    <circle
+      cx={200}
+      cy={150}
+      r={104}
+      fill={CREAM}
+      stroke={INK}
+      strokeWidth={5}
+    />
     <circle cx={200} cy={150} r={84} fill={RED} />
     <circle cx={168} cy={120} r={13} fill={INK} />
     <circle cx={236} cy={132} r={13} fill={INK} />
@@ -68,10 +69,38 @@ const Pizza = (
 const Gelato = (
   <Frame bg={RED}>
     <Dots color={CREAM} />
-    <polygon points="200,290 150,150 250,150" fill={GOLD} stroke={INK} strokeWidth={5} />
-    <line x1="170" y1="180" x2="230" y2="180" stroke={INK} strokeWidth={3} opacity={0.5} />
-    <line x1="182" y1="210" x2="218" y2="210" stroke={INK} strokeWidth={3} opacity={0.5} />
-    <circle cx={175} cy={135} r={40} fill={CREAM} stroke={INK} strokeWidth={5} />
+    <polygon
+      points="200,290 150,150 250,150"
+      fill={GOLD}
+      stroke={INK}
+      strokeWidth={5}
+    />
+    <line
+      x1="170"
+      y1="180"
+      x2="230"
+      y2="180"
+      stroke={INK}
+      strokeWidth={3}
+      opacity={0.5}
+    />
+    <line
+      x1="182"
+      y1="210"
+      x2="218"
+      y2="210"
+      stroke={INK}
+      strokeWidth={3}
+      opacity={0.5}
+    />
+    <circle
+      cx={175}
+      cy={135}
+      r={40}
+      fill={CREAM}
+      stroke={INK}
+      strokeWidth={5}
+    />
     <circle cx={225} cy={135} r={40} fill={TEAL} stroke={INK} strokeWidth={5} />
     <circle cx={200} cy={95} r={36} fill={CREAM} stroke={INK} strokeWidth={5} />
     <circle cx={200} cy={70} r={9} fill={RED} stroke={INK} strokeWidth={3} />
@@ -87,9 +116,30 @@ const Mask = (
       stroke={INK}
       strokeWidth={5}
     />
-    <ellipse cx={165} cy={150} rx={22} ry={15} fill={CREAM} stroke={INK} strokeWidth={4} />
-    <ellipse cx={235} cy={150} rx={22} ry={15} fill={CREAM} stroke={INK} strokeWidth={4} />
-    <path d="M200 95 Q210 60 200 30 Q190 60 200 95" fill={RED} stroke={INK} strokeWidth={3} />
+    <ellipse
+      cx={165}
+      cy={150}
+      rx={22}
+      ry={15}
+      fill={CREAM}
+      stroke={INK}
+      strokeWidth={4}
+    />
+    <ellipse
+      cx={235}
+      cy={150}
+      rx={22}
+      ry={15}
+      fill={CREAM}
+      stroke={INK}
+      strokeWidth={4}
+    />
+    <path
+      d="M200 95 Q210 60 200 30 Q190 60 200 95"
+      fill={RED}
+      stroke={INK}
+      strokeWidth={3}
+    />
     <path d="M200 95 Q230 70 250 45" fill="none" stroke={RED} strokeWidth={6} />
     <path d="M200 95 Q170 70 150 45" fill="none" stroke={RED} strokeWidth={6} />
   </Frame>
@@ -101,13 +151,19 @@ const Gondola = (
       <path d="M0 230 Q50 220 100 230 T200 230 T300 230 T400 230" />
       <path d="M0 258 Q50 248 100 258 T200 258 T300 258 T400 258" />
     </g>
-    <path
-      d="M70 200 Q200 245 330 200 L300 215 Q200 240 100 215 Z"
-      fill={INK}
-    />
+    <path d="M70 200 Q200 245 330 200 L300 215 Q200 240 100 215 Z" fill={INK} />
     <line x1="120" y1="205" x2="120" y2="120" stroke={INK} strokeWidth={5} />
     <path d="M120 120 q22 6 14 26" fill="none" stroke={INK} strokeWidth={5} />
-    <rect x="170" y="170" width="60" height="22" rx="4" fill={RED} stroke={INK} strokeWidth={3} />
+    <rect
+      x="170"
+      y="170"
+      width="60"
+      height="22"
+      rx="4"
+      fill={RED}
+      stroke={INK}
+      strokeWidth={3}
+    />
   </Frame>
 );
 
@@ -129,7 +185,15 @@ const Lanterns = (
           stroke={INK}
           strokeWidth={3}
         />
-        <line x1={x - 18} y1={92} x2={x + 18} y2={92} stroke={INK} strokeWidth={2} opacity={0.5} />
+        <line
+          x1={x - 18}
+          y1={92}
+          x2={x + 18}
+          y2={92}
+          stroke={INK}
+          strokeWidth={2}
+          opacity={0.5}
+        />
       </g>
     ))}
   </Frame>

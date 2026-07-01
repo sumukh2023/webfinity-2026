@@ -9,10 +9,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(14_80%_49%/0.6)] hover:-translate-y-0.5 hover:brightness-[1.05]',
+          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(13_74%_47%/0.55)] hover:-translate-y-0.5 hover:brightness-[1.05]',
         // kept for API compat; same intentful solid as default
         gradient:
-          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(14_80%_49%/0.6)] hover:-translate-y-0.5 hover:brightness-[1.05]',
+          'bg-primary text-primary-foreground shadow-[0_6px_16px_-6px_hsl(13_74%_47%/0.55)] hover:-translate-y-0.5 hover:brightness-[1.05]',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         outline:

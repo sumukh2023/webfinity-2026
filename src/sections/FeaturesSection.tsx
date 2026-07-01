@@ -1,64 +1,77 @@
 import {
   Pizza,
   IceCream2,
-  Music4,
-  Palette,
-  Ticket,
-  Trophy,
+  Drama,
+  Camera,
+  Mic2,
+  Frame,
+  Coffee,
+  CookingPot,
 } from 'lucide-react';
 import { Section, SectionHeading } from '@/components/Section';
 import { FeatureCard } from '@/components/FeatureCard';
 import { StaggerChildren, StaggerItem } from '@/components/animations';
 
-const features = [
+const experiences = [
   {
     icon: Pizza,
-    title: 'Street food from every region',
+    title: 'Pizza Making',
     description:
-      'Wood-fired pizza, fresh arancini, focaccia and cannoli, cooked on-site by our culinary club and local nonni.',
-  },
-  {
-    icon: Trophy,
-    title: 'Carnival games & prizes',
-    description:
-      'Gondola ring toss, bocce, “pin the moustache on the Mario” and a Colosseum bounce arena. Win tickets, redeem for prizes.',
-  },
-  {
-    icon: Music4,
-    title: 'Live music & tarantella',
-    description:
-      'Our school band plays Italian classics on the main stage, with a beginner-friendly tarantella dance lesson at noon.',
-  },
-  {
-    icon: Palette,
-    title: 'Art & craft piazza',
-    description:
-      'Paint a Venetian mask, fold origami gondolas, and add a tile to the giant collaborative mosaic of the Bay of Naples.',
+      'Stretch, top and fire your own margherita in the wood-oven workshop, guided by our culinary team.',
   },
   {
     icon: IceCream2,
-    title: 'The gelato lab',
+    title: 'Gelato Corner',
     description:
-      'Twelve flavours churned fresh, from stracciatella to blood-orange sorbetto. Senior science class explains the chemistry.',
+      'Twelve flavours churned fresh, from stracciatella to blood-orange sorbetto. The coolest queue on campus.',
   },
   {
-    icon: Ticket,
-    title: 'All for a good cause',
+    icon: Drama,
+    title: 'Venetian Mask Workshop',
     description:
-      'Every dollar goes to the Lincoln High arts and exchange-trip fund. Have fun, support your school.',
+      'Craft and decorate a Carnevale mask to wear through the piazza and carry home as a keepsake.',
+  },
+  {
+    icon: Camera,
+    title: 'Photo Piazza',
+    description:
+      'Step into a hand-painted Italian streetscape and leave with a portrait worthy of the Amalfi Coast.',
+  },
+  {
+    icon: Mic2,
+    title: 'Opera Experience',
+    description:
+      'Intimate arias performed up close, with a chance to learn the story behind each unforgettable aria.',
+  },
+  {
+    icon: Frame,
+    title: 'Italian Art Gallery',
+    description:
+      'A curated walk through student works inspired by Renaissance masters, framed under warm light.',
+  },
+  {
+    icon: Coffee,
+    title: 'Coffee Bar',
+    description:
+      'A proper Italian espresso bar. Cappuccino, macchiato and affogato pulled all day long.',
+  },
+  {
+    icon: CookingPot,
+    title: 'Pasta Kitchen',
+    description:
+      'Roll and shape fresh pasta by hand, then taste it dressed in a simple, sun-ripe sauce.',
   },
 ];
 
 export function FeaturesSection() {
   return (
-    <Section id="attractions" spacing="lg">
+    <Section id="experiences" spacing="lg">
       <SectionHeading
-        eyebrow="What’s on"
-        title="One day. All of Italy."
-        description="From the first espresso to the evening lantern walk, the whole quad becomes a Mediterranean piazza for a day."
+        title="Italian experiences to step into"
+        description="More than a show to watch. A day to taste, make and take part in, from the pasta kitchen to the opera stage."
       />
-      <StaggerChildren className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
+      <StaggerChildren className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {experiences.map((f) => (
           <StaggerItem key={f.title}>
             <FeatureCard {...f} />
           </StaggerItem>
